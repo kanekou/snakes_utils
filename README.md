@@ -9,9 +9,7 @@ It is used in academia.
 A very simple example.
 
 ```py
-import snakes.plugins
-snakes.plugins.load("gv", "snakes.nets", "nets")
-from nets import *
+from snakes.nets import *
 import snakes_utils
 
 # create petri nets
