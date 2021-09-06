@@ -259,4 +259,4 @@ print(su.pt)
 
 ## License
 
-The source code is licensed MIT
+The source code is licensed MIT.
