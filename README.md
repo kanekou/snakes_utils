@@ -6,7 +6,7 @@ It is used in academia.
 
 ## Example
 
-A very simple example. [Here's the actual code in jupyter notebook.](https://github.com/kanekou/snakes2ds/blob/main/examples/test_snakes.ipynb)
+A very simple example.
 
 ```py
 import snakes.plugins
@@ -259,4 +259,4 @@ print(su.pt)
 
 ## License
 
-The source code is licensed MIT, see LICENSE.txt.
+The source code is licensed MIT

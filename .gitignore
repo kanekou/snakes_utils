@@ -49,3 +49,6 @@ generated_petrinet_at_jupyter.png
 # snakes
 share
 
+
+# others
+.DS_Store
