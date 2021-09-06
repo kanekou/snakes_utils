@@ -12,7 +12,7 @@ setup(
     name="snakes_utils",
     packages=find_packages(),
     install_requires=['snakes'],
-    version="1.0.1",
+    version="1.0.2",
     license="MIT",
     author='kanekou',
     author_email='k208580@ie.u-ryukyu.ac.jp',
