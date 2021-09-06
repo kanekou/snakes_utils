@@ -209,6 +209,7 @@ class TestScheduling(unittest.TestCase):
         actual = su.extract_required_trans_by_resource(rflag=self.__rflag)
         self.assertEqual(expected, actual)
 
+    # TODO: Add get jobs
     # def assert_equal_jobs(self, jobs, jobs2):
     #     def subtract_list(lst1, lst2):
     #         lst = lst1.copy()
