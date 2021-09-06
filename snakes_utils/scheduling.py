@@ -1,7 +1,7 @@
 # Copyright (c) 2021 Kohei Kaneshima (kanekou)
 # This software is released under the MIT License, see LICENSE.txt.
 
-from snakes_utils.utils import utils
+from .utils import utils
 from collections import defaultdict
 from snakes.nets import *
 import snakes.plugins
@@ -24,7 +24,8 @@ class Scheduling:
         self.__posttrans_place_map = self.extract_trans(post=True)
         self.__pretrans_place_map = self.extract_trans()
         self.__resources_trans_map = self.extract_required_resources_by_trans()
-        self.__trans_resource_map = self.extract_required_trans_by_resource(rflag=rflag)
+        self.__trans_resource_map = self.extract_required_trans_by_resource(
+            rflag=rflag)
         self.__pt = utils.extract_guards(self.__n)
 
     @property
