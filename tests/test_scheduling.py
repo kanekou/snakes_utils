@@ -210,31 +210,31 @@ class TestScheduling(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     # TODO: Add test what get jobs
-    # def assert_equal_jobs(self, jobs, jobs2):
-    #     def subtract_list(lst1, lst2):
-    #         lst = lst1.copy()
-    #         for element in lst2:
-    #             try:
-    #                 lst.remove(element)
-    #             except ValueError:
-    #                 return False
-    #         if not lst:
-    #             return True
-    #         return False
+    def assert_equal_jobs(self, jobs, jobs2):
+        def subtract_list(lst1, lst2):
+            lst = lst1.copy()
+            for element in lst2:
+                try:
+                    lst.remove(element)
+                except ValueError:
+                    return False
+            if not lst:
+                return True
+            return False
 
-    #     jobs_values = list(jobs.values())
-    #     jobs2_values = list(jobs2.values())
-    #     if not (subtract_list(jobs_values, jobs2_values) or subtract_list(jobs2_values, jobs_values)):
-    #         return False
-    #     return True
+        jobs_values = list(jobs.values())
+        jobs2_values = list(jobs2.values())
+        if not (subtract_list(jobs_values, jobs2_values) or subtract_list(jobs2_values, jobs_values)):
+            return False
+        return True
 
-    # def test_get_jobs(self):
-    #     expected = defaultdict(list,
-    #                 {0: ['t0', 't1', 't2', 't3'],
-    #                 1: ['t4', 't5', 't6', 't7'],
-    #                 2: ['t8', 't9', 't10', 't11']})
-    #     actual = main.get_jobs(self.__net, self.__pretrans_place_map, self.__posttrans_place_map, self.__postplaces_trans_map, self.__machines)
-    #     self.assertTrue(self.assert_equal_jobs(expected, actual))
+    def test_get_jobs(self):
+        expected = defaultdict(list,
+                    {0: ['t0', 't1', 't2', 't3'],
+                    1: ['t4', 't5', 't6', 't7'],
+                    2: ['t8', 't9', 't10', 't11']})
+        actual = snakes_utils.get_jobs(self.__net, self.__pretrans_place_map, self.__posttrans_place_map, self.__postplaces_trans_map, self.__machines)
+        self.assertTrue(self.assert_equal_jobs(expected, actual))
 
 
 if __name__ == "__main__":
