@@ -14,7 +14,7 @@ It is used in academia.
 
 ### Example
 
-A very simple example.
+A very simple example. [notebook example here.](https://github.com/kanekou/snakes_utils/blob/main/examples/example.ipynb)
 
 ```py
 from snakes.nets import *
