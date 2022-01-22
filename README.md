@@ -31,9 +31,12 @@ n.add_output('p1', 't0', Variable('x'))
 n.add_input('p1', 't1', Variable('x'))
 
 su = snakes_utils.Basic(n)
+
+# Outputs the guard conditions for transitions.
 print(su.guards)
 # {'t0': 'True', 't1': 'True'}
 
+# Outputs input transitions for a place.
 print(su.posttrans_place_map)
 # {'p0': ['t0'], 'p1': ['t1']}
 
@@ -43,7 +46,8 @@ print(su.posttrans_place_map)
 
 - Python :: 3.x
 
-  We have already confirmed the operation of version 3.7. Other versions are also expected to work, but we have not been able to confirm.
+  We have already confirmed the operation of version `3.7`.
+  Other versions are also expected to work, but we have not been able to confirm.
 
 ## Running the tests
 
