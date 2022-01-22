@@ -51,7 +51,7 @@ print(su.posttrans_place_map)
 % python3 -m unittest
 ```
 
-## Supported specific topologies.
+## Supported specific topologies
 
 In addition to basic Petri nets, specific topologies are supported.
 More commonly, the Basic class will be easier to use.

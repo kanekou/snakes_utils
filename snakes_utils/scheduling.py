@@ -23,7 +23,7 @@ class Scheduling:
         self.__resources_trans_map = self.extract_required_resources_by_trans()
         self.__trans_resource_map = self.extract_required_trans_by_resource(rflag=rflag)
         self.__jobs = self.get_jobs()
-        self.__pt = utils.extract_guards(self.__n)
+        self.__pt = self.extract_guards()
 
     @property
     def pt(self):
@@ -72,6 +72,14 @@ class Scheduling:
             return self.__postplaces_trans_map_include_resources
         else:
             return self.__postplaces_trans_map
+
+    def extract_guards(self):
+        pt = {}
+        for t in self.__n._trans:
+            guard = self.__n._trans[t].guard._str
+            pt[t] = int(guard)
+
+        return pt
 
     def extract_resources(self, rflag='r'):
         return [k for k in self.__places if k[0][0] == rflag]

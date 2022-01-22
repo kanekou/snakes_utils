@@ -13,14 +13,11 @@ class Basic:
         self.__n = n
         self.__places = n._place.keys()
         self.__trans = n._trans.keys()
-        self.__tnum = len(n._trans.keys())
-        self.__postplaces_trans_map = utils.extract_graph_topology(
-            self.__n, self.__trans, post=True)
-        self.__preplaces_trans_map = utils.extract_graph_topology(
-            self.__n, self.__trans)
+        self.__postplaces_trans_map = utils.extract_graph_topology(self.__n, self.__trans, post=True)
+        self.__preplaces_trans_map = utils.extract_graph_topology(self.__n, self.__trans)
         self.__posttrans_place_map = self.extract_trans(post=True)
         self.__pretrans_place_map = self.extract_trans()
-        self.__guards = utils.extract_guards(n)
+        self.__guards = self.extract_guards()
 
     @property
     def guards(self):
@@ -60,3 +57,10 @@ class Basic:
             for place in places:
                 data[place].append(trans)
         return dict(data)
+
+    def extract_guards(self):
+        pt = {}
+        for t in self.__n._trans:
+            pt[t] = self.__n._trans[t].guard._str
+
+        return pt

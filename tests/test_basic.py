@@ -9,9 +9,6 @@ import snakes_utils
 class TestBasic(unittest.TestCase):
     def setUp(self):
         self.__net = self.init_petrinet()
-        self.__place = self.__net._place
-        self.__trans = self.__net._trans
-
 
     def init_petrinet(self):
         n = PetriNet('sample')
@@ -61,9 +58,6 @@ class TestBasic(unittest.TestCase):
         actual = su.guards
 
         self.assertEqual(expected, actual)
-
-
-
 
 if __name__ == "__main__":
     unittest.main()
