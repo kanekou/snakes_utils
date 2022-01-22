@@ -9,9 +9,7 @@ import snakes_utils
 
 class TestScheduling(unittest.TestCase):
     def setUp(self):
-        self.__net, self.__machines = self.init_petrinet()
-        self.__place = self.__net._place
-        self.__trans = self.__net._trans
+        self.__net = self.init_petrinet()
         self.__rflag = 'm'
 
     def init_petrinet(self):
@@ -76,7 +74,7 @@ class TestScheduling(unittest.TestCase):
                 n.add_input(m, e, Variable('x'))
                 n.add_output(m, e, Variable('x'))
 
-        return n, m_dict.keys()
+        return n
 
     def test_extract_post_places(self):
         expected = {'t1': 'p2',
