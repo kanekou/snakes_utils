@@ -4,7 +4,15 @@ SnakesUtils supports conversion from [SNAKES](https://snakes.ibisc.univ-evry.fr/
 As a result, Petri nets can be handled easily!
 It is used in academia.
 
-## Example
+## Getting Started
+
+### Installing
+
+```python
+% pip install snakes-utils
+```
+
+### Example
 
 A very simple example.
 
@@ -31,11 +39,32 @@ print(su.posttrans_place_map)
 
 ```
 
+### Prerequisites
+
+- Python :: 3.x
+
+  We have already confirmed the operation of version 3.7. Other versions are also expected to work, but we have not been able to confirm.
+
+## Running the tests
+
+```python
+% python3 -m unittest
+```
+
 ## Supported specific topologies.
 
 In addition to basic Petri nets, specific topologies are supported.
+More commonly, the Basic class will be easier to use.
 
 - Job Shop Scheduling Problem(jss)
+
+## Contributing
+
+Welcome!
+
+## Versioning
+
+We use pypi for versioning. For the versions available, see the tags on this repository.
 
 ## API Reference
 
@@ -248,6 +277,16 @@ Return the processing time for each operation. Use only for jss.
 su = snakes_utils.Scheduling(n)
 print(su.pt)
 # {<transition>: <processing time>,...},
+```
+
+#### Method `jobs(self)`
+
+Return operations for each jobs. The job number is determined dynamically. Use only for jss.
+
+```python
+su = snakes_utils.Scheduling(n)
+print(su.jobs)
+# { job_number: [trans_id,...],... }
 ```
 
 ## Reference site
