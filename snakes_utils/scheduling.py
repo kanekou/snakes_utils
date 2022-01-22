@@ -13,19 +13,16 @@ class Scheduling:
         self.__n = n
         self.__places = n._place.keys()
         self.__trans = n._trans.keys()
-        self.__tnum = len(n._trans.keys())
-        self.__postplaces_trans_map_include_resources = utils.extract_graph_topology(
-            self.__n, self.__trans, post=True)
-        self.__preplaces_trans_map_include_resources = utils.extract_graph_topology(
-            self.__n, self.__trans)
+        self.__postplaces_trans_map_include_resources = utils.extract_graph_topology(self.__n, self.__trans, post=True)
+        self.__preplaces_trans_map_include_resources = utils.extract_graph_topology(self.__n, self.__trans)
         self.__resources = self.extract_resources(rflag=rflag)
         self.__postplaces_trans_map = self.extract_places(post=True)
         self.__preplaces_trans_map = self.extract_places()
         self.__posttrans_place_map = self.extract_trans(post=True)
         self.__pretrans_place_map = self.extract_trans()
         self.__resources_trans_map = self.extract_required_resources_by_trans()
-        self.__trans_resource_map = self.extract_required_trans_by_resource(
-            rflag=rflag)
+        self.__trans_resource_map = self.extract_required_trans_by_resource(rflag=rflag)
+        self.__jobs = self.get_jobs()
         self.__pt = utils.extract_guards(self.__n)
 
     @property
@@ -59,6 +56,10 @@ class Scheduling:
     @property
     def resources_trans_map(self):
         return self.__resources_trans_map
+
+    @property
+    def jobs(self):
+        return self.__jobs
 
     def preplaces_trans_map(self, resource=False):
         if resource:
@@ -107,7 +108,7 @@ class Scheduling:
 
         return require_resources
 
-    # NOTE: Can receive either preplaces_trans_map_include_resources or postplaces_trans_map_include_resources
+    # It can receive either preplaces_trans_map_include_resources or postplaces_trans_map_include_resources
     def extract_required_trans_by_resource(self, rflag='r'):
         trans_resource_map = defaultdict(set)
         for trans, places in self.__preplaces_trans_map_include_resources.items():
@@ -115,3 +116,26 @@ class Scheduling:
                 if place[0] == rflag:
                     trans_resource_map[place].add(trans)
         return trans_resource_map
+
+    def get_jobs(self):
+        init_tokens = set(self.__places) - \
+            set(self.__pretrans_place_map) - set(self.__resources)
+        jobs = defaultdict(list)
+
+        for idx, fp in enumerate(init_tokens):
+            self.extract_job(jobs, fp, idx)
+
+        return dict(jobs)
+
+
+    def extract_job(self, jobs, place, job_idx):
+        if not (place in self.__posttrans_place_map):
+            return
+
+        nt = self.posttrans_place_map[place]
+        np = self.postplaces_trans_map(resource=False)[nt]
+
+        # jobs = { job_number: [trans_id,...],... }
+        jobs[job_idx].append(nt)
+
+        return self.extract_job(jobs, np, job_idx)
