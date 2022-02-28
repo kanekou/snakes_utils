@@ -1,6 +1,6 @@
 # SnakesUtils
 
-SnakesUtils supports conversion from [SNAKES](https://snakes.ibisc.univ-evry.fr/) to data structures.
+SnakesUtils supports conversion from [SNAKES](https://snakes.ibisc.univ-evry.fr/) object to easy-to-use data structure.
 As a result, Petri nets can be handled easily!
 It is used in academia.
 
@@ -120,7 +120,7 @@ print(su.guard)
 
 #### Method `preplaces_trans_map(self)`
 
-Return the place behind the transition.
+Return the input place for each transition.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -130,7 +130,7 @@ print(su.preplaces_trans_map)
 
 #### Method `postplaces_trans_map(self)`
 
-Return the place in front of the transition.
+Return the output place for each transition.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -140,7 +140,7 @@ print(su.postplaces_trans_map)
 
 #### Method `pretrans_place_map(self)`
 
-Return the transition behind the place.
+Return the input transition for each place.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -150,7 +150,7 @@ print(su.pretrans_place_map)
 
 #### Method `posttrans_place_map(self)`
 
-Return the transition in front of the place.
+Return the output transition for each place.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -207,7 +207,7 @@ print(su.resources)
 
 #### Method `preplaces_trans_map(self, resource=False)`
 
-Return the place behind the transition.
+Return the input place for each transition.
 
 ```python
 su = snakes_utils.Scheduling(n)
@@ -221,7 +221,7 @@ print(su.preplaces_trans_map)
 
 #### Method `postplaces_trans_map(self, resource=False)`
 
-Return the place in front of the transition.
+Return the output place for each transition.
 
 ```python
 su = snakes_utils.Scheduling(n)
@@ -235,7 +235,7 @@ print(su.postplaces_trans_map)
 
 #### Method `pretrans_place_map(self)`
 
-Return the transition behind the place.
+Return the input transition for each place.
 
 ```python
 su = snakes_utils.Scheduling(n)
@@ -245,7 +245,7 @@ print(su.pretrans_place_map)
 
 #### Method `posttrans_place_map(self)`
 
-Return the transition in front of the place.
+Return the output transition for each place.
 
 ```python
 su = snakes_utils.Scheduling(n)
