@@ -60,7 +60,7 @@ print(su.posttrans_place_map)
 In addition to basic Petri nets, specific topologies are supported.
 More commonly, the Basic class will be easier to use.
 
-- Job Shop Scheduling Problem(jss)
+- Job Shop Scheduling Problem(Single Resource Type)
 
 ## Contributing
 
@@ -78,7 +78,7 @@ Basic class deals with simple Petri nets.
 
 #### Method `__init__(self, n)`
 
-Initialize the instance of Basic Class, that convert snakes model into a data structure.
+Initialize the instance of Basic Class, that convert snakes object into a data structure.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -158,29 +158,29 @@ print(su.posttrans_place_map)
 # { <place>: <transition>,... }
 ```
 
-### class Scheduling
+### class JSS
 
-Scheduling problem, one of the combinatorial optimization problems is handled by Petri nets.
+Job Shop Scheduling Problem(JSS), one of the combinatorial optimization problems is handled by Petri nets.
 
 #### Method `__init__(self, n, rflag='r')`
 
-Initialize the instance of Scheduling Class, that convert snakes model into a data structure.
+Initialize the instance of JSS Class, that convert snakes object into a data structure.
 
 ```python
-su = snakes_utils.Basic(n)
+su = snakes_utils.JSS(n)
 ```
 
 ##### Call API
 
 - `n`: SNAKES net model
-- `rflag`: Resource Flag how to distinguish the resource place from places. **Only the first and only one character can be inserted.**
+- `rflag`: Resource Flag how to distinguish the resource place from some places. **Only one character can be set. Also, It must be the first letter of the resource place name.** For example, If one resource place name is `m1`, set `m` to `rflag`.
 
 #### Method `places(self)`
 
 Return a list of places.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.places)
 # [<place>,...]
 ```
@@ -190,17 +190,17 @@ print(su.places)
 Return a list of transitions.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.trans)
 # [<transition>,...]
 ```
 
 #### Method `resources(self)`
 
-Return a list of resources information. Use only for jss.
+Return a list of resources information. Use only for JSS.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.resources)
 # [<resource>,...]
 ```
@@ -210,7 +210,7 @@ print(su.resources)
 Return the input place for each transition.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.preplaces_trans_map)
 # { <transiton>: <place>,... }
 ```
@@ -224,7 +224,7 @@ print(su.preplaces_trans_map)
 Return the output place for each transition.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.postplaces_trans_map)
 # { <transiton>: <place>,... }
 ```
@@ -238,7 +238,7 @@ print(su.postplaces_trans_map)
 Return the input transition for each place.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.pretrans_place_map)
 # { <place>: <transition>,... }
 ```
@@ -248,47 +248,47 @@ print(su.pretrans_place_map)
 Return the output transition for each place.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.posttrans_place_map)
 # { <place>: <transition>,... }
 ```
 
 #### Method `trans_resource_map(self)`
 
-Return a set of transitions that need resources. Use only for jss.
+Return a set of transitions that need resources. Use only for JSS.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.trans_resource_map)
 # {<resource>: {<transition>, ...}, ...},
 ```
 
 #### Method `resources_trans_map(self)`
 
-Return a set of machines that need transitions. Use only for jss.
+Return a set of machines that need transitions. Use only for JSS.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.resources_trans_map)
 # {<transition>: {<resource>, ...}, ...},
 ```
 
 #### Method `pt(self)`
 
-Return the processing time for each operation. Use only for jss.
+Return the processing time for each operation. Use only for JSS.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.pt)
 # {<transition>: <processing time>,...},
 ```
 
 #### Method `jobs(self)`
 
-Return operations for each jobs. The job number is determined dynamically. Use only for jss.
+Return operations for each jobs. The job number is determined dynamically. Use only for JSS.
 
 ```python
-su = snakes_utils.Scheduling(n)
+su = snakes_utils.JSS(n)
 print(su.jobs)
 # { job_number: [trans_id,...],... }
 ```
