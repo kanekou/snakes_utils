@@ -13,7 +13,7 @@ import snakes.plugins
 snakes.plugins.load("gv", "snakes.nets", "nets")
 
 
-class Scheduling:
+class JSS:
     def __init__(self, n, rflag='r'):
         self.__n = n
         self.__places = n._place.keys()

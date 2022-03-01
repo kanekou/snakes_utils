@@ -12,7 +12,7 @@ from snakes.nets import *
 import snakes_utils
 
 
-class TestScheduling(unittest.TestCase):
+class TestJSS(unittest.TestCase):
     def setUp(self):
         self.__net = self.init_petrinet()
         self.__rflag = 'm'
@@ -95,7 +95,7 @@ class TestScheduling(unittest.TestCase):
                     't10': 'p13',
                     't11': 'p14'}
 
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.extract_places(post=True)
 
         self.assertEqual(expected, actual)
@@ -114,14 +114,14 @@ class TestScheduling(unittest.TestCase):
                     'p12': 't10',
                     'p13': 't11'}
 
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.extract_trans(post=True)
 
         self.assertEqual(expected, actual)
 
     def test_extract_resources(self):
         expected = ['m0', 'm1', 'm2']
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.extract_resources(rflag=self.__rflag)
 
         self.assertEqual(expected, actual)
@@ -140,7 +140,7 @@ class TestScheduling(unittest.TestCase):
                     't10': 2,
                     't11': 2}
 
-        su = snakes_utils.Scheduling(self.__net, self.__rflag)
+        su = snakes_utils.JSS(self.__net, self.__rflag)
         actual = su.pt
 
         self.assertEqual(expected, actual)
@@ -159,7 +159,7 @@ class TestScheduling(unittest.TestCase):
                     't10': ['p13', 'm2'],
                     't11': ['p14', 'm2']}
 
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.postplaces_trans_map(resource=True)
 
         self.assertEqual(expected, actual)
@@ -178,7 +178,7 @@ class TestScheduling(unittest.TestCase):
                     't10': ['p12', 'm2'],
                     't11': ['p13', 'm2']}
 
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.preplaces_trans_map(resource=True)
 
         self.assertEqual(expected, actual)
@@ -198,7 +198,7 @@ class TestScheduling(unittest.TestCase):
                                    't10': {'m2'},
                                    't11': {'m2'}})
 
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.extract_required_resources_by_trans()
 
         self.assertEqual(expected, actual)
@@ -208,7 +208,7 @@ class TestScheduling(unittest.TestCase):
                     'm2': {'t7', 't3', 't11', 't10'},
                     'm0': {'t8', 't9', 't4', 't0'}}
 
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.extract_required_trans_by_resource(rflag=self.__rflag)
         self.assertEqual(expected, actual)
 
@@ -218,7 +218,7 @@ class TestScheduling(unittest.TestCase):
                     1: ['t4', 't5', 't6', 't7'],
                     2: ['t8', 't9', 't10', 't11']})
 
-        su = snakes_utils.Scheduling(self.__net, rflag=self.__rflag)
+        su = snakes_utils.JSS(self.__net, rflag=self.__rflag)
         actual = su.jobs
         self.assertTrue(self.assert_equal_jobs(expected, actual))
 

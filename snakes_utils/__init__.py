@@ -7,4 +7,4 @@
 # You should have received a copy of the GNU Lesser General Public License along with this library; If not, see <https://www.gnu.org/licenses/>.
 
 from snakes_utils.basic import Basic
-from snakes_utils.scheduling import Scheduling
+from snakes_utils.jss import JSS
