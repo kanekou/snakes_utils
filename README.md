@@ -131,7 +131,7 @@ print(su.guard)
 
 #### Method `preplaces_trans_map(self)`
 
-Return the input place for each transition.
+Return the input places for each transition.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -141,7 +141,7 @@ print(su.preplaces_trans_map)
 
 #### Method `postplaces_trans_map(self)`
 
-Return the output place for each transition.
+Return the output places for each transition.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -151,7 +151,7 @@ print(su.postplaces_trans_map)
 
 #### Method `pretrans_place_map(self)`
 
-Return the input transition for each place.
+Return the input transitions for each place.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -161,7 +161,7 @@ print(su.pretrans_place_map)
 
 #### Method `posttrans_place_map(self)`
 
-Return the output transition for each place.
+Return the output transitions for each place.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -223,7 +223,7 @@ print(su.resources)
 
 #### Method `preplaces_trans_map(self, resource=False)`
 
-Return the input place for each transition.
+Return the input places for each transition.
 
 ```python
 su = snakes_utils.JSS(n)
@@ -237,7 +237,7 @@ print(su.preplaces_trans_map)
 
 #### Method `postplaces_trans_map(self, resource=False)`
 
-Return the output place for each transition.
+Return the output places for each transition.
 
 ```python
 su = snakes_utils.JSS(n)
@@ -251,7 +251,7 @@ print(su.postplaces_trans_map)
 
 #### Method `pretrans_place_map(self)`
 
-Return the input transition for each place.
+Return the input transitions for each place.
 
 ```python
 su = snakes_utils.JSS(n)
@@ -261,7 +261,7 @@ print(su.pretrans_place_map)
 
 #### Method `posttrans_place_map(self)`
 
-Return the output transition for each place.
+Return the output transitions for each place.
 
 ```python
 su = snakes_utils.JSS(n)
