@@ -1,8 +1,18 @@
 # SnakesUtils
 
-SnakesUtils supports conversion from [SNAKES](https://snakes.ibisc.univ-evry.fr/) object to easy-to-use data structure.
+SnakesUtils supports conversion from [SNAKES](https://snakes.ibisc.univ-evry.fr/) object to Built-in Data Types in Python.
 As a result, Petri nets can be handled easily!
 It is used in academia.
+
+## Feature
+
+- For a SNAKES object, generate Python list(or dict) of `P, T`.
+- For all `p in P`, `t in T`, generate `t, p` as a Python list.
+- For all `t in T`, generate the guard conditions for each as a Python dist.
+- For all `t in T`, generate the input and output places as a Python dict.
+- For all `p in P`, generate the input and output transitons as a Python dict.
+
+`P` and `T` are SNAKES object, which are sets of place and transion, respectively.
 
 ## Getting Started
 
@@ -173,7 +183,12 @@ su = snakes_utils.JSS(n)
 ##### Call API
 
 - `n`: SNAKES net model
-- `rflag`: Resource Flag how to distinguish the resource place from some places. **Only one character can be set. Also, It must be the first letter of the resource place name.** For example, If one resource place name is `m1`, set `m` to `rflag`.
+- `rflag`: Resource Flag how to distinguish the resource place from places.
+
+  - **Sets the first letter of the resource place name.**
+    For example, If one resource place name is `m1`, rflag=`m`.
+
+  - Resource place names must be in the form of a single-character char followed by the resource number. e.g.) `m1`, `r2`
 
 #### Method `places(self)`
 
