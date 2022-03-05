@@ -43,7 +43,7 @@ n.add_input('p1', 't1', Variable('x'))
 
 su = snakes_utils.Basic(n)
 
-# Outputs the guard conditions for each transition.
+# Outputs the guard condition for each transition.
 print(su.guards)
 # {'t0': 'True', 't1': 'True'}
 
