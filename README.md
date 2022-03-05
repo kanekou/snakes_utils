@@ -89,7 +89,7 @@ Basic class deals with simple Petri nets.
 
 #### Method `__init__(self, n)`
 
-Initialize the instance of Basic Class, that convert snakes object into a data structure.
+Initialize the instance of Basic Class, that convert snakes object into Built-in Data Types in Python.
 
 ```python
 su = snakes_utils.Basic(n)
@@ -175,7 +175,7 @@ Job Shop Scheduling Problem(JSS), one of the combinatorial optimization problems
 
 #### Method `__init__(self, n, rflag='r')`
 
-Initialize the instance of JSS Class, that convert snakes object into a data structure.
+Initialize the instance of JSS Class, that convert snakes object into Built-in Data Types in Python.
 
 ```python
 su = snakes_utils.JSS(n)
