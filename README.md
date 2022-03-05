@@ -8,7 +8,7 @@ It is used in academia.
 
 - For a SNAKES object, generate Python list(or dict) of `P`, `T` in `PN=(P, T)`.
 - For all `p` in `P`, `t` in `T`, generate `t`, `p` as a Python list.
-- For all `t` in `T`, generate the guard conditions as a Python dist.
+- For all `t` in `T`, generate the guard conditions for each as a Python dist.
 - For all `t` in `T`, generate the input and output places as a Python dict.
 - For all `p` in `P`, generate the input and output transitons as a Python dict.
 
