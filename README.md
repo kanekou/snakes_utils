@@ -121,7 +121,7 @@ print(su.trans)
 
 #### Method `guard(self)`
 
-Return the guard conditions for the transition.
+Return the guard conditions for each transition.
 
 ```python
 su = snakes_utils.Basic(n)
