@@ -6,13 +6,14 @@ It is used in academia.
 
 ## Feature
 
-- For a SNAKES object, generate Python list(or dict) of `P, T`.
+- For a SNAKES object, generate Python list(or dict) of `P, T` in `PN=(P, T)`.
 - For all `p in P`, `t in T`, generate `t, p` as a Python list.
-- For all `t in T`, generate the guard conditions for each as a Python dist.
+- For all `t in T`, generate the guard conditions as a Python dist.
 - For all `t in T`, generate the input and output places as a Python dict.
 - For all `p in P`, generate the input and output transitons as a Python dict.
 
-`P` and `T` are SNAKES object, which are sets of place and transion, respectively.
+`PN=(P, T)` is a Petrinet as SNAKES object.
+`P` and `T` are sets of place and transion, respectively.
 
 ## Getting Started
 
