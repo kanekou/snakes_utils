@@ -12,7 +12,7 @@ It is used in academia.
 - For all `t in T`, generate the input and output places as a Python dict.
 - For all `p in P`, generate the input and output transitons as a Python dict.
 
-`PN=(P, T)` is a Petrinet as SNAKES object.
+`PN=(P, T)` is a Petrinet as a SNAKES object.
 `P` and `T` are sets of place and transion, respectively.
 
 ## Getting Started
