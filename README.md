@@ -1,14 +1,12 @@
 # SnakesUtils
 
-SnakesUtils supports conversion from [SNAKES](https://snakes.ibisc.univ-evry.fr/) object to Built-in Data Types in Python.
-As a result, Petri nets can be handled easily!
-It is used in academia.
+SnakesUtils supports conversion from [SNAKES](https://snakes.ibisc.univ-evry.fr/) objects to Built-in Data Types in Python. As a result, the Petri net models can be manipulated more easily for your specific purpose.
 
 ## Feature
 
 - For a SNAKES object, generate Python list(or dict) of `P`, `T` in `PN=(P, T)`.
 - For all `p` in `P`, `t` in `T`, generate `t`, `p` as a Python list.
-- For all `t` in `T`, generate the guard conditions for each as a Python dist.
+- For all `t` in `T`, generate the guard conditions for each as a Python dict.
 - For all `t` in `T`, generate the input and output places as a Python dict.
 - For all `p` in `P`, generate the input and output transitons as a Python dict.
 
